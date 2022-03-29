@@ -5,7 +5,11 @@ class MorseTabel {
   float len = 0.0;
   float hei = 0.0;
   char bogstav;
-  int baggrund = 0;
+  private int baggrund = 255;
+
+  String morseTegn;//chris en string som indeholder morseKoden
+
+
   //konstruktør
   MorseTabel(float xpos, float ypos, float len, float hei, char bogstav) {
     this.xpos = xpos;
@@ -22,13 +26,28 @@ class MorseTabel {
     drawText();
   }
   void drawKasse() {
-    baggrund = 0; //Sætter baggrund til sort
+    println(baggrund);
+    fill(baggrund); // her bestemmer jeg farven på kassen
     rect(0, 0, len, hei);
-    fill(baggrund);
+    fill(0); // husk at lave den tilbage eller bliver alt samme farve
   }
   void drawText() {
     text(bogstav, len/2-10, hei/2+12);
-    baggrund = 255;
-    fill(baggrund);
+    fill(255);// hvid
+  }
+
+  // en set funktion til morseKoden - det skal være i jeres konstruktør
+  void setMorseTegn(String s) {
+    this.morseTegn = s;
+  }
+
+
+  String getMorseTegn() {
+    return this.morseTegn;
+  }
+
+
+  void setBackground(int farve) {
+    this.baggrund = farve;
   }
 }

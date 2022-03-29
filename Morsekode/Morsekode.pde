@@ -17,26 +17,32 @@ void setup() {
 void draw() {
   background(225);
   drawMorseTable();
-  printArray(morseListe);
+  //printArray(morseListe);
 }
 
 void keyPressed() {
   switch(key) {
   case '-': // Overvåger "-" (streg)
-
     str=str+"-";  // Der tilføjes nu et "-" til slutningen på str 
-    println(str);
     break;
 
   case '.': // Overvåger "." - prik
     str=str+".";  // Der tilføjes nu et "." til slutningen på str
-    println(str);
     break;
 
   case ',': // Overvåger ","
     morseListe.add(str); // 
     str=""; // nulstiller str så den nu er tom
     break;
+  }
+
+  println(str);
+  
+  // jeg looper gennem alle bogstaver og finder det som jeg har i min string
+  for (MorseTabel m : morseTabels) {
+    if (str.equals(m.getMorseTegn())) {
+      m.setBackground(180);
+    }
   }
 }
 
@@ -45,7 +51,10 @@ void setupMorseTable() {
 
   //Række 1
   morseTabels[0] = new MorseTabel(x, y, bredde, hojde, 'E');
+  morseTabels[0].setMorseTegn("."); // hvis det skal gå begge veje skal jeg også kende morse koden 
+
   morseTabels[1] = new MorseTabel(x+bredde, y, bredde, hojde, 'T');
+  morseTabels[1].setMorseTegn("-");
 
 
   for (int i =0; i<c.length; i++) {
@@ -54,7 +63,7 @@ void setupMorseTable() {
     if (1<i && i<6) {
       morseTabels[i] = new MorseTabel(x+bredde*(i-2)/2, y+hojde, bredde/2, hojde, c[i]);
     }
-
+    
     //Række 3
     if (6<=i && i<=13) {
       morseTabels[i] = new MorseTabel(x+bredde*(i-6)/4, y+hojde*2, bredde/4, hojde, c[i]);
@@ -64,7 +73,13 @@ void setupMorseTable() {
     if (14<=i && i<=29) {
       morseTabels[i] = new MorseTabel(x+bredde*(i-14)/8, y+hojde*3, bredde/8, hojde, c[i]);
     }
+    
   }
+  // Chris
+    morseTabels[2].setMorseTegn(".."); // I 
+    morseTabels[3].setMorseTegn(".-"); // I
+    morseTabels[4].setMorseTegn("-."); // I
+    morseTabels[5].setMorseTegn("--"); // I
 }
 
 void drawMorseTable() {
@@ -73,9 +88,13 @@ void drawMorseTable() {
     pushMatrix();
     translate(morseTabels[i].xpos, morseTabels[i].ypos);
     morseTabels[i].drawFelt();
+
     popMatrix();
   }
 }
+
+
+
 
 
 //Række 3
