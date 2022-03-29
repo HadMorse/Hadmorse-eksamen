@@ -22,23 +22,7 @@ void draw() {
   background(225);
   drawMorseTable();
   printArray(morseListe);
-  // background(225);
-
-  //f = new Firkant();
-  //f.drawFirkant();
-
-  //Række 1:
-  //drawE();
-  //rect(x,y,bredde,hojde);
-  //rect(x+bredde, y, bredde, hojde);
-
-  //Række 2:
-  //rect(x, y+hojde, bredde/2, hojde);
-  //rect(x+bredde/2, y+hojde, bredde/2, hojde);
-  //rect(x+bredde, y+hojde, bredde/2, hojde);
-  //rect(x+bredde*1.5, y+hojde, bredde/2, hojde);
-
-  //Række 3
+ 
 }
 
 void keyPressed() {
