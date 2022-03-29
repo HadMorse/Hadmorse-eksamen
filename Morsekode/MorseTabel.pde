@@ -23,7 +23,7 @@ void drawFelt(){
   
 rect(0,0,len,hei);
 fill(0);
-text(bogstav,len/2,hei/2);
+text(bogstav,len/2-10,hei/2+12);
 fill(255);
 }
 
