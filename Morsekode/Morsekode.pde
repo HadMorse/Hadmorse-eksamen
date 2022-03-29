@@ -1,7 +1,7 @@
 float x = 100;
 float y = 50;
 
-MorseTabel[] morseTabels = new MorseTabel[4];
+MorseTabel[] morseTabels = new MorseTabel[17];
 
 
 
@@ -63,10 +63,26 @@ void keyPressed() {
 
 void setupMorseTable() {
 
-  morseTabels[0] = new MorseTabel(150, 150, 150, 50, 'E');
-  morseTabels[1] = new MorseTabel(300, 150, 150, 50, 'T');
-  morseTabels[2] = new MorseTabel(150, 200, 75, 50, 'I');
-  morseTabels[3] = new MorseTabel(225, 200, 75, 50, 'A');
+  morseTabels[0] = new MorseTabel(x,y,bredde,hojde, 'E');
+  morseTabels[1] = new MorseTabel(x+bredde, y, bredde, hojde, 'T');
+  morseTabels[2] = new MorseTabel(x, y+hojde, bredde/2, hojde, 'I');
+  morseTabels[3] = new MorseTabel(x+bredde/2,y+hojde, bredde/2, hojde, 'A');
+  morseTabels[4] = new MorseTabel(x+bredde, y+hojde, bredde/2, hojde, 'N');
+  morseTabels[5] = new MorseTabel(x+bredde*1.5, y+hojde, bredde/2, hojde, 'M');
+  morseTabels[6] = new MorseTabel(x, y+hojde*2, bredde/4, hojde, 'S');
+  morseTabels[7] = new MorseTabel(x+bredde/4, y+hojde*2, bredde/4, hojde, 'U');
+  morseTabels[8] = new MorseTabel(x+bredde/2, y+hojde*2, bredde/4, hojde, 'R');
+  morseTabels[9] = new MorseTabel(x+bredde*0.75, y+hojde*2, bredde/4, hojde, 'W');
+  morseTabels[10] = new MorseTabel(x+bredde, y+hojde*2, bredde/4, hojde, 'D');
+  morseTabels[11] = new MorseTabel(x+bredde*1.25, y+hojde*2, bredde/4, hojde, 'K');
+  morseTabels[12] = new MorseTabel(x+bredde*1.5, y+hojde*2, bredde/4, hojde, 'G');
+  morseTabels[13] = new MorseTabel(x+bredde*1.75, y+hojde*2, bredde/4, hojde, 'O');
+  morseTabels[14] = new MorseTabel(x, y+hojde*3, bredde/8, hojde, 'H');
+  morseTabels[15] = new MorseTabel(x+bredde/8, y+hojde*3, bredde/8, hojde, 'V');
+  morseTabels[16] = new MorseTabel(x+bredde/4, y+hojde*3, bredde/8, hojde, 'F');
+  //morseTabels[16] = new MorseTabel(x+bredde/4, y+hojde*3, bredde/8, hojde, 'F');
+
+
 }
 
 void drawMorseTable() {
