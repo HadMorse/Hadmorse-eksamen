@@ -26,7 +26,7 @@ class MorseTabel {
     drawText();
   }
   void drawKasse() {
-    println(baggrund);
+    //println(baggrund);
     fill(baggrund); // her bestemmer jeg farven på kassen
     rect(0, 0, len, hei);
     fill(0); // husk at lave den tilbage eller bliver alt samme farve

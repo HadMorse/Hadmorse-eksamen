@@ -6,6 +6,9 @@ MorseTabel[] morseTabels = new MorseTabel[30];
 int bredde = 400;
 int hojde = 100;
 
+String c="";
+String tekst="";
+
 String str=""; // Opretter en string som er tom
 ArrayList<String> morseListe = new ArrayList <String>();
 
@@ -32,18 +35,41 @@ void keyPressed() {
 
   case ',': // Overvåger ","
     morseListe.add(str); // 
-    str=""; // nulstiller str så den nu er tom
+    morseListe.add(c); // 
+    tekst = tekst+c;
+    str = ""; // nulstiller str så den nu er tom
+
     break;
   }
 
   println(str);
-  
+ 
   // jeg looper gennem alle bogstaver og finder det som jeg har i min string
   for (MorseTabel m : morseTabels) {
     if (str.equals(m.getMorseTegn())) {
       m.setBackground(180);
+          
+    if (m.getMorseTegn()== "."){
+    c = "E";
+    
+    }
+      if (m.getMorseTegn()== ".."){
+    c = "I";
+    
+    }
+    if (m.getMorseTegn()== ".-"){
+    c = "A";
+    
+    }
+      if (m.getMorseTegn()== "-."){
+    c = "N";
+    
+    } 
     }
   }
+  
+  
+  
 }
 
 void setupMorseTable() {
@@ -73,71 +99,56 @@ void setupMorseTable() {
     if (14<=i && i<=29) {
       morseTabels[i] = new MorseTabel(x+bredde*(i-14)/8, y+hojde*3, bredde/8, hojde, c[i]);
     }
-    
+
   }
   // Chris
     morseTabels[2].setMorseTegn(".."); // I 
-    morseTabels[3].setMorseTegn(".-"); // I
-    morseTabels[4].setMorseTegn("-."); // I
-    morseTabels[5].setMorseTegn("--"); // I
+    morseTabels[3].setMorseTegn(".-"); // A
+    morseTabels[4].setMorseTegn("-."); // N
+    morseTabels[5].setMorseTegn("--"); // M
+    morseTabels[6].setMorseTegn("..."); // S
+    morseTabels[7].setMorseTegn("..-"); // U
+    morseTabels[8].setMorseTegn(".-."); // R
+    morseTabels[9].setMorseTegn(".--"); // W
+    morseTabels[10].setMorseTegn("-.."); // D
+    morseTabels[11].setMorseTegn("-.-"); // K
+    morseTabels[12].setMorseTegn("--."); // G
+    morseTabels[13].setMorseTegn("---"); // O
+    morseTabels[14].setMorseTegn("...."); // H
+    morseTabels[15].setMorseTegn("...-"); // V
+    morseTabels[16].setMorseTegn("..-."); // F
+    morseTabels[17].setMorseTegn("..--"); // (
+    morseTabels[18].setMorseTegn(".-.."); // L
+    morseTabels[19].setMorseTegn(".-.-"); // Æ
+    morseTabels[20].setMorseTegn(".--."); // P
+    morseTabels[21].setMorseTegn(".---"); // J
+    morseTabels[22].setMorseTegn("-..."); // B
+    morseTabels[23].setMorseTegn("-..-"); // X
+    morseTabels[24].setMorseTegn("-.-."); // C
+    morseTabels[25].setMorseTegn("-.--"); // Y
+    morseTabels[26].setMorseTegn("--.."); // Z
+    morseTabels[27].setMorseTegn("--.-"); // Q
+    morseTabels[28].setMorseTegn("---."); // Ø
+    morseTabels[29].setMorseTegn("----"); // )
+
+
+
 }
 
 void drawMorseTable() {
+fill(0);
+    text(tekst, 100, 500, 960, 320);  // Text wraps within text box
 
+  
   for (int i =0; i<morseTabels.length; i++) {
     pushMatrix();
     translate(morseTabels[i].xpos, morseTabels[i].ypos);
     morseTabels[i].drawFelt();
 
+
+
     popMatrix();
   }
+
+
 }
-
-
-
-
-
-//Række 3
-/*
-  for (int i =0; i<=8; i++) {
- morseTabels[6+i] = new MorseTabel(x+bredde*i/4, y+hojde*2, bredde/4, hojde, 'S');
- } 
- 
- //Række 4
- for (int i =0; i<=15; i++) {
- morseTabels[14+i] = new MorseTabel(x+bredde*i/8, y+hojde*3, bredde/8, hojde, 'H');
- } 
- */
-
-
-
-
-//Række 3
-/*
- morseTabels[6] = new MorseTabel(x, y+hojde*2, bredde/4, hojde, 'S');
- morseTabels[7] = new MorseTabel(x+bredde*1/4, y+hojde*2, bredde/4, hojde, 'U');
- morseTabels[8] = new MorseTabel(x+bredde*2/4, y+hojde*2, bredde/4, hojde, 'R');
- morseTabels[9] = new MorseTabel(x+bredde*3/4, y+hojde*2, bredde/4, hojde, 'W');
- morseTabels[10] = new MorseTabel(x+bredde, y+hojde*2, bredde/4, hojde, 'D');
- morseTabels[11] = new MorseTabel(x+bredde*5/4, y+hojde*2, bredde/4, hojde, 'K');
- morseTabels[12] = new MorseTabel(x+bredde*6/4, y+hojde*2, bredde/4, hojde, 'G');
- morseTabels[13] = new MorseTabel(x+bredde*7/4, y+hojde*2, bredde/4, hojde, 'O');
- 
- //Række 4
- morseTabels[14] = new MorseTabel(x, y+hojde*3, bredde/8, hojde, 'H');
- morseTabels[15] = new MorseTabel(x+bredde*1/8, y+hojde*3, bredde/8, hojde, 'V');
- morseTabels[16] = new MorseTabel(x+bredde*2/8, y+hojde*3, bredde/8, hojde, 'F');
- morseTabels[17] = new MorseTabel(x+bredde*3/8, y+hojde*3, bredde/8, hojde, '(');
- morseTabels[18] = new MorseTabel(x+bredde*4/8, y+hojde*3, bredde/8, hojde, 'L');
- morseTabels[19] = new MorseTabel(x+bredde*5/8, y+hojde*3, bredde/8, hojde, 'Æ');
- morseTabels[20] = new MorseTabel(x+bredde*6/8, y+hojde*3, bredde/8, hojde, 'P');
- morseTabels[21] = new MorseTabel(x+bredde*7/8, y+hojde*3, bredde/8, hojde, 'J');
- morseTabels[22] = new MorseTabel(x+bredde*8/8, y+hojde*3, bredde/8, hojde, 'B');
- morseTabels[23] = new MorseTabel(x+bredde*9/8, y+hojde*3, bredde/8, hojde, 'X');
- morseTabels[24] = new MorseTabel(x+bredde*10/8, y+hojde*3, bredde/8, hojde, 'C');
- morseTabels[25] = new MorseTabel(x+bredde*11/8, y+hojde*3, bredde/8, hojde, 'Y');
- morseTabels[26] = new MorseTabel(x+bredde*12/8, y+hojde*3, bredde/8, hojde, 'Z');
- morseTabels[27] = new MorseTabel(x+bredde*13/8, y+hojde*3, bredde/8, hojde, 'Q');
- morseTabels[28] = new MorseTabel(x+bredde*14/8, y+hojde*3, bredde/8, hojde, 'Ø');
- morseTabels[29] = new MorseTabel(x+bredde*15/8, y+hojde*3, bredde/8, hojde, ')');
- */
