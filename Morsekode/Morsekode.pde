@@ -35,8 +35,8 @@ void keyPressed() {
 
   case ',': // Overvåger ","
     morseListe.add(str); // 
-    morseListe.add(c); // 
-    tekst = tekst+c;
+    //morseListe.add(c); // 
+    //tekst = tekst+c;
     str = ""; // nulstiller str så den nu er tom
 
     break;
@@ -46,30 +46,100 @@ void keyPressed() {
  
   // jeg looper gennem alle bogstaver og finder det som jeg har i min string
   for (MorseTabel m : morseTabels) {
-    if (str.equals(m.getMorseTegn())) {
-      m.setBackground(180);
-          
+    if (str.equals(m.getMorseTegn())){
+      m.setBackground(180); 
+      //c=()m.getMorseBogstav();
+     String c = String.valueOf(m.getMorseTegn());      
+     println(m.getMorseBogstav());
+    }
+   
+    /*
     if (m.getMorseTegn()== "."){
     c = "E";
-    
     }
       if (m.getMorseTegn()== ".."){
     c = "I";
-    
     }
-    if (m.getMorseTegn()== ".-"){
-    c = "A";
-    
+      if (m.getMorseTegn()== "..."){
+    c = "S";
+    }  
+       if (m.getMorseTegn()== "...."){
+    c = "H";
     }
-      if (m.getMorseTegn()== "-."){
-    c = "N";
-    
+        if (m.getMorseTegn()== "...-"){
+    c = "V";
+    }
+         if (m.getMorseTegn()== "..-."){
+    c = "F";
+    }
+    if (m.getMorseTegn()== "..-"){
+    c = "U";
+    }
+         if (m.getMorseTegn()== "..--"){
+    c = "(";
+    }
+         if (m.getMorseTegn()== ".-."){
+    c = "R";
+    }
+         if (m.getMorseTegn()== ".-.."){
+    c = "L";
+    }
+         if (m.getMorseTegn()== ".-.-"){
+    c = "Æ";
+    }
+      if (m.getMorseTegn()== ".--."){
+    c = "P";
     } 
+    if (m.getMorseTegn()== ".---"){
+    c = "J";
     }
-  }
-  
-  
-  
+    if (m.getMorseTegn()== "-"){
+    c = "T";
+    }
+     if (m.getMorseTegn()== "-."){
+    c = "N";
+    }
+     if (m.getMorseTegn()== "-.."){
+    c = "D";
+    }
+     if (m.getMorseTegn()== "-..."){
+    c = "B";
+    }
+     if (m.getMorseTegn()== "-..-"){
+    c = "X";
+    }
+     if (m.getMorseTegn()== "-.-"){
+    c = "K";
+    }
+     if (m.getMorseTegn()== "-.-."){
+    c = "C";
+    }
+    if (m.getMorseTegn()== "-.--"){
+    c = "Y";
+    }
+     if (m.getMorseTegn()== "--"){
+    c = "M";
+    }  
+     if (m.getMorseTegn()== "--."){
+    c = "G";
+    } 
+     if (m.getMorseTegn()== "--.."){
+    c = "Z";
+    }
+     if (m.getMorseTegn()== "--.-"){
+    c = "Q";
+    }
+     if (m.getMorseTegn()== "---"){
+    c = "O";
+    }
+     if (m.getMorseTegn()== "---."){
+    c = "Ø";
+    }
+    if (m.getMorseTegn()== "----"){
+    c = ")";
+     }*/
+    // println("+"+m.getMorseTegn()); 
+}
 }
 
 void setupMorseTable() {
@@ -151,4 +221,10 @@ fill(0);
   }
 
 
+}
+void udskrivMorse(){
+ for (int i = 0; i < morseListe.size(); i++) {
+  String s = morseListe.get(i);
+  text(s,100+i*10,600);
+}
 }

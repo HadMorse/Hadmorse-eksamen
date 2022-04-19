@@ -45,6 +45,10 @@ class MorseTabel {
   String getMorseTegn() {
     return this.morseTegn;
   }
+  
+   char getMorseBogstav() {
+    return this.bogstav;
+  }
 
 
   void setBackground(int farve) {
