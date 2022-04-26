@@ -1,24 +1,24 @@
-float x = 100;
-float y = 50;
+float x = 100; //Start x-koordinat for tabellen
+float y = 50; // Start y-koordinat for tabellen
 
-MorseTabel[] morseTabels = new MorseTabel[30];
+MorseTabel[] morseTabels = new MorseTabel[30]; // Laver et array som indeholder 31 huse
 
-int bredde = 400;
-int hojde = 100;
+int bredde = 400; // Definerer bredden af kolonnen øverst til venstre
+int hojde = 100; // Definerer højden af kolonnen øverst til venstre
 
-String c="";
-String tekst="";
+String c="";  // Laver en string som bruges til at lagre det enkelte bogstav, som er ved at blive lavet 
+String tekst=""; // Laver en string som senere skal indeholde alle bogstaverne som skabes af stringen c
 
-String str=""; // Opretter en string som er tom
+String str=""; // Laver en string som senere skal indeholde morsekoden (Prik, streg osv.)
 ArrayList<String> morseListe = new ArrayList <String>();
 
 void setup() {
-  size(1000, 800);
+  size(1000, 800); // Sætter størrelse på canvas
   setupMorseTable();
-  textSize(35);
+  textSize(35); // Skriftstørrelse
 }
 void draw() {
-  background(225);
+  background(200); // Baggrundsfarve
   drawMorseTable();
   //printArray(morseListe);
 }
@@ -46,7 +46,7 @@ void keyPressed() {
  
   // jeg looper gennem alle bogstaver og finder det som jeg har i min string
   for (MorseTabel m : morseTabels) {
-    if (str.equals(m.getMorseTegn())) {
+     if (str.equals(m.getMorseTegn())) {
       m.setBackground(180);
           
      if (m.getMorseTegn()== "."){
@@ -206,6 +206,7 @@ void setupMorseTable() {
 void drawMorseTable() {
 fill(0);
     text(tekst, 100, 500, 960, 320);  // Text wraps within text box
+    
 
   
   for (int i =0; i<morseTabels.length; i++) {
