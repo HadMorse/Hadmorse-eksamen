@@ -24,6 +24,15 @@ void draw() {
 }
 
 void keyPressed() {
+  if(key==32) {   
+  tekst = tekst+c+"_";
+   str = ""; // nulstiller str så den nu er tom
+   for (MorseTabel m : morseTabels) {
+      
+      m.setBackground(255);}
+    //str=str+"_";  // Der tilføjes nu et "." til slutningen på st
+  println("mellemrum");
+  }
   switch(key) {
   case '-': // Overvåger "-" (streg)
     str=str+"-";  // Der tilføjes nu et "-" til slutningen på str 
@@ -32,13 +41,16 @@ void keyPressed() {
   case '.': // Overvåger "." - prik
     str=str+".";  // Der tilføjes nu et "." til slutningen på str
     break;
+    
 
   case ',': // Overvåger ","
     morseListe.add(str); // 
     morseListe.add(c); // 
     tekst = tekst+c;
     str = ""; // nulstiller str så den nu er tom
-
+for (MorseTabel m : morseTabels) {
+      
+      m.setBackground(255);}
     break;
   }
 
@@ -205,16 +217,12 @@ void setupMorseTable() {
 
 void drawMorseTable() {
 fill(0);
-    text(tekst, 100, 500, 960, 320);  // Text wraps within text box
-    
-
+    text(tekst, 100, 500, 800, 220);  // Text wraps within text box
   
   for (int i =0; i<morseTabels.length; i++) {
     pushMatrix();
     translate(morseTabels[i].xpos, morseTabels[i].ypos);
     morseTabels[i].drawFelt();
-
-
 
     popMatrix();
   }

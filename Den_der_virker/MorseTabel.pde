@@ -30,10 +30,12 @@ class MorseTabel {
     fill(baggrund); // her bestemmer jeg farven på kassen
     rect(0, 0, len, hei);
     fill(0); // husk at lave den tilbage eller bliver alt samme farve
+    
+    
   }
   void drawText() {
     text(bogstav, len/2-10, hei/2+12);
-    fill(255);// hvid
+    //fill(200);// hvid
   }
 
   // en set funktion til morseKoden - det skal være i jeres konstruktør
