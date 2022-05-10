@@ -27,6 +27,7 @@ void keyPressed() {
   if(key==32) {   
   tekst = tekst+c+"_";
    str = ""; // nulstiller str så den nu er tom
+   c = "";
    for (MorseTabel m : morseTabels) {
       
       m.setBackground(255);}
@@ -48,6 +49,7 @@ void keyPressed() {
     morseListe.add(c); // 
     tekst = tekst+c;
     str = ""; // nulstiller str så den nu er tom
+    c = "";
 for (MorseTabel m : morseTabels) {
       
       m.setBackground(255);}
@@ -63,6 +65,12 @@ for (MorseTabel m : morseTabels) {
           
      if (m.getMorseTegn()== "."){
     c = "E";
+    }
+    if (m.getMorseTegn()== ".-"){
+    c = "A";
+    }
+    if (m.getMorseTegn()== ".--"){
+    c = "W";
     }
       if (m.getMorseTegn()== ".."){
     c = "I";
