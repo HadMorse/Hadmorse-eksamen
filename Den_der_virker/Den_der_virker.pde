@@ -47,16 +47,17 @@ void keyPressed() {
   case ',': // Overvåger ","
     morseListe.add(str); // 
     morseListe.add(c); // 
-    tekst = tekst+c;
+    tekst = tekst+c; // String'en "tekst" udvides med værdien af c
+    print(str+"/"); // Skriver moresekoden i console
     str = ""; // nulstiller str så den nu er tom
-    c = "";
+    c = ""; // nulstiller c så den nu er tom
 for (MorseTabel m : morseTabels) {
       
       m.setBackground(255);}
     break;
   }
 
-  println(str);
+ // println(str);
  
   // jeg looper gennem alle bogstaver og finder det som jeg har i min string
   for (MorseTabel m : morseTabels) {
